@@ -30,6 +30,7 @@ const createProduct = async (req, res) => {
     await sql.query`INSERT INTO Products (name, quantity, price) VALUES (${name}, ${quantity}, ${price})`;
     res.status(201).json({ message: "Product created" });
   } catch (err) {
+    console.error("Error creating product:", err);
     res.status(500).json({ message: err.message });
   }
 };
