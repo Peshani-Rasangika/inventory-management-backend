@@ -6,6 +6,7 @@ const getProducts = async (req, res) => {
     const result = await sql.query`SELECT * FROM Products`;
     res.json(result.recordset);
   } catch (err) {
+    console.error("Error fetching products:", err);
     res.status(500).json({ message: err.message });
   }
 };
